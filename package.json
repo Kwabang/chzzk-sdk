@@ -1,0 +1,13 @@
+{
+  "name": "chzzk-sdk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "https://github.com/Kwabang/chzzk-sdk.git",
+  "author": "Gyeongtaek Kim <kwabang2827@gmail.com>",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "got": "^14.0.0",
+    "m3u8-parser": "^7.1.0"
+  }
+}
