@@ -2,12 +2,24 @@ import request from "./request.js";
 import getLiveDetail from "./getLiveDetail.js";
 import * as m3u8Parser from "m3u8-parser";
 
-function getLLHLS(uuid, verbose) {
+/**
+ * @typedef {Object} resultOfHLS
+ * @property {string} audio
+ * @property {Object.<string,string>} video
+ */
+
+/**
+ * @param {string} uuid
+ * @param {boolean} [verbose=false]
+ * @returns {Promise<resultOfHLS>}
+ * @throws {Error}
+ */
+function getLLHLS(uuid, verbose = false) {
   return new Promise(async (resolve, reject) => {
     try {
       const liveDetail = await getLiveDetail(uuid);
-      const mediaData = liveDetail.livePlaybackJson.media;
-      if (mediaData) {
+      if (liveDetail?.livePlaybackJson?.live?.status === "STARTED") {
+        const mediaData = liveDetail.livePlaybackJson.media;
         const isLLHLS = (element) => element.mediaId === "LLHLS";
         const indexOfLLHLS = mediaData.findIndex(isLLHLS);
         if (verbose) {
