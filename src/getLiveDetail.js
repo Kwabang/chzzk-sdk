@@ -132,6 +132,8 @@ function getLiveDetail(uuid) {
         apiResponse = convertType(apiResponse, stringJSON, "JSON");
         apiResponse = convertType(apiResponse, dateJSON, "Date");
         resolve(apiResponse);
+      } else if (apiResponse.statusCode === 404) {
+        reject("Channel does not exist");
       } else {
         reject("Fail to fetch Naver API");
       }
