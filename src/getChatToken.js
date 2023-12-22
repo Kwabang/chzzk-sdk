@@ -7,7 +7,7 @@ import convertType from "./convertType.js";
  * @property {?string} accessToken
  * @property {?chatTokenTemporaryRestrict} temporaryRestrict
  * @property {?string} extraToken
- * @property {?string} chatChnnelID
+ * @property {?string} chatChannelId
  */
 
 /**
