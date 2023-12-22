@@ -7,6 +7,7 @@ import convertType from "./convertType.js";
  * @property {?string} accessToken
  * @property {?chatTokenTemporaryRestrict} temporaryRestrict
  * @property {?string} extraToken
+ * @property {?string} chatChnnelID
  */
 
 /**
@@ -32,6 +33,7 @@ function getChatToken(uuid) {
         const dateJSON = ["temporaryRestrict.createdTime"];
         apiResponse = JSON.parse(apiResponse.body).content;
         apiResponse = convertType(apiResponse, dateJSON, "Date");
+        apiResponse.chatChannelId = liveDetail.chatChannelId;
         resolve(apiResponse);
       } else {
         reject("Fail to fetch Naver API");
