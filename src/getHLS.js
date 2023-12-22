@@ -9,15 +9,15 @@ import * as m3u8Parser from "m3u8-parser";
  */
 
 /**
- * @param {string} uuid
+ * @param {string} channelID
  * @param {boolean} [verbose=false]
  * @returns {Promise<resultOfHLS>}
  * @throws {Error}
  */
-function getHLS(uuid, verbose = false) {
+function getHLS(channelID, verbose = false) {
   return new Promise(async (resolve, reject) => {
     try {
-      const liveDetail = await getLiveDetail(uuid);
+      const liveDetail = await getLiveDetail(channelID);
       if (liveDetail?.livePlaybackJson?.live?.status === "STARTED") {
         const mediaData = liveDetail.livePlaybackJson.media;
         const isHLS = (element) => element.mediaId === "HLS";

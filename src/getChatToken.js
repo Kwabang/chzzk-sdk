@@ -18,14 +18,14 @@ import convertType from "./convertType.js";
  * @property {?Date} createdTime
  */
 /**
- * @param {string} uuid
+ * @param {string} channelID
  * @returns {Promise<chatToken>}
  * @throws {Error}
  */
-function getChatToken(uuid) {
+function getChatToken(channelID) {
   return new Promise(async (resolve, reject) => {
     try {
-      const liveDetail = await getLiveDetail(uuid);
+      const liveDetail = await getLiveDetail(channelID);
       let apiResponse = await request.get(
         `https://comm-api.game.naver.com/nng_main/v1/chats/access-token?channelId=${liveDetail.chatChannelId}&chatType=STREAMING`
       );

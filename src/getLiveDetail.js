@@ -109,15 +109,15 @@ import convertType from "./convertType.js";
  */
 
 /**
- * @param {string} uuid
+ * @param {string} chhanelID
  * @returns {Promise<liveDetail>}
  * @throws {Error}
  */
-function getLiveDetail(uuid) {
+function getLiveDetail(chhanelID) {
   return new Promise(async (resolve, reject) => {
     try {
       let apiResponse = await request.get(
-        `https://api.chzzk.naver.com/service/v1/channels/${uuid}/live-detail`
+        `https://api.chzzk.naver.com/service/v1/channels/${chhanelID}/live-detail`
       );
       if (apiResponse.ok) {
         const stringJSON = ["livePlaybackJson", "livePollingStatusJson"];
