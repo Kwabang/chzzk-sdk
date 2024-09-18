@@ -117,7 +117,7 @@ function getLiveDetail(chhanelID) {
   return new Promise(async (resolve, reject) => {
     try {
       let apiResponse = await request.get(
-        `https://api.chzzk.naver.com/service/v1/channels/${chhanelID}/live-detail`
+        `https://api.chzzk.naver.com/service/v3/channels/${chhanelID}/live-detail`
       );
       if (apiResponse.ok) {
         const stringJSON = ["livePlaybackJson", "livePollingStatusJson"];

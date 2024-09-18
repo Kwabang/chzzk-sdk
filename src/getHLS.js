@@ -4,7 +4,6 @@ import * as m3u8Parser from "m3u8-parser";
 
 /**
  * @typedef {Object} resultOfHLS
- * @property {string} audio
  * @property {Object.<string,string>} video
  */
 
@@ -34,14 +33,7 @@ function getHLS(channelID, verbose = false) {
             parser.end();
             const parsedManifest = parser.manifest;
             let result = {};
-            const audioPlaylists = parsedManifest.mediaGroups.AUDIO;
             const videoPlaylists = parsedManifest.playlists;
-            const audio =
-              absoluteHLSPath +
-              "/" +
-              audioPlaylists[Object.keys(audioPlaylists)[0]]["audio.stream"]
-                .uri;
-            result.audio = audio;
             result.video = {};
             for (const key of videoPlaylists) {
               result.video[key.attributes.RESOLUTION.height + "p"] =

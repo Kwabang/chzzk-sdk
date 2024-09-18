@@ -26,7 +26,6 @@ const LLHLS = await getLLHLS(channelID)
 
 ```javascript
 {
-  audio: 'https://livecloud.pstatic.net/.....m3u8',
   video: {
     '1080p': 'https://livecloud.pstatic.net/.....m3u8',
     '720p': 'https://livecloud.pstatic.net/.....m3u8',
